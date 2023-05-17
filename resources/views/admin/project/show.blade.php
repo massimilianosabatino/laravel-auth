@@ -3,8 +3,11 @@
 @section('content')
 <div class="container-fluid mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            visualizzazione progetto
+        <div class="col-md-10">
+            <img src="{{ $project->cover }}" alt="" class="img-fluid">
+            <h1>{{ $project->title }}</h1>
+            <p>{{ $project->description }}</p>
+                <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">Back</a>
         </div>
     </div>
 </div>
