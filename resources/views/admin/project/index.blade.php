@@ -29,7 +29,9 @@
                             </td>
                             <td>{{ $project->title }}</td>
                             <td>{{ $project->category }}</td>
-                            <td>{{ $project->private }}</td>
+                            <td>
+                                <input class="form-check-input" type="checkbox" value="" {{ $project->private ? 'checked' : '' }} id="flexCheckDefault" aria-label="Private project">
+                            </td>
                             {{-- Action button --}}
                             <td>
                                 <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-light">Details</a>
