@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -40,9 +41,10 @@ class ProjectController extends Controller
     {
         $newProject = new Project();
         $newProject->fill($request->validated());
+        $newProject->slug = Str::slug($newProject->title);
         $newProject->save();
 
-        return view('admin.project.index');
+        return to_route('admin.projects.index');
     }
 
     /**
