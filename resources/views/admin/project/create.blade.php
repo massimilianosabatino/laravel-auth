@@ -2,9 +2,13 @@
 
 @section('content')
 @if ($errors->any())
-@foreach ($errors->all() as $error)
-    <div>{{$error}}</div>
-@endforeach
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>   
 @endif
 <div class="container-fluid mt-4">
     <div class="row justify-content-center">

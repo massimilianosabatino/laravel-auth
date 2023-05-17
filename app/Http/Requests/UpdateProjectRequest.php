@@ -24,7 +24,13 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|unique:projects',
+            'cover' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'link' => 'url|nullable',
+            'client' => 'string|nullable',
+            'private' => 'boolean',
         ];
     }
 }

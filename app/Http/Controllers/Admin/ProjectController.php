@@ -78,9 +78,12 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $project->update($request->validated());
-        
-        return view('admin.project.show', compact('prooject'));
+        $data = $request->validated();
+        $project->update($data);
+        $project->slug = Str::slug($project->title);
+        $project->save();
+
+        return view('admin.project.show', compact('project'));
     }
 
     /**
