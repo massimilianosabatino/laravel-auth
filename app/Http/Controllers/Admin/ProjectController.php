@@ -40,7 +40,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        // dd($request);
+
         $newProject = new Project();
         $newProject->fill($request->validated());
         if(isset($request['cover-upload'])){
@@ -85,19 +85,18 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
-        // dd($request['cover-upload']);
-        // if($request['cover-upload'] !== '' AND isset($request['cover-upload'])){
-        //     if(Str::startsWith($project->cover, 'uploads')){
-        //         Storage::delete($project->cover);
-        //     }
-        //     $data['cover'] = Storage::put('uploads', $request['cover-upload']);
-        // }
+
+        if(!isset($request['cover-upload']) AND Str::startsWith($project->cover, 'uploads')){
+            Storage::delete($project->cover);
+        }
+
         if(isset($request['cover-upload'])){
             if(Str::startsWith($project->cover, 'uploads')){
                 Storage::delete($project->cover);
             }
             $data['cover'] = Storage::put('uploads', $request['cover-upload']);
         }
+
         $project->update($data);
         $project->private = isset($request['private']);
         $project->slug = Str::slug($project->title);
