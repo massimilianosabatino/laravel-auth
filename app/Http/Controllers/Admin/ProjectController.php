@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -42,6 +43,10 @@ class ProjectController extends Controller
         // dd($request);
         $newProject = new Project();
         $newProject->fill($request->validated());
+        dd($request['cover-upload']);
+        if(isset($request['cover-upload'])){
+            $newProject->cover = Storage::put('uploads', $request['cover-upload']);
+        }
         $newProject->private = isset($request['private']);
         $newProject->slug = Str::slug($newProject->title);
         $newProject->save();
@@ -81,6 +86,13 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
+        // dd($request['cover-upload']);
+        if($request['cover-upload'] !== '' AND isset($request['cover-upload'])){
+            if(Str::startsWith($project->cover, 'uploads')){
+                Storage::delete($project->cover);
+            }
+            $data['cover'] = Storage::put('uploads', $request['cover-upload']);
+        }
         $project->update($data);
         $project->private = isset($request['private']);
         $project->slug = Str::slug($project->title);

@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10 p-4 border rounded">
             <h2>New project</h2>
-            <form action="{{ route('admin.projects.store') }}" method="POST">
+            <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
@@ -22,7 +22,11 @@
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="cover" name="cover" value="{{ old('cover') }}">
-                    <label for="cover" class="form-label">Image url or path</label>
+                    <label for="cover" class="form-label">Cover image url or path</label>
+                </div>
+                <div class="mb-3">
+                    <label for="cover-upload" class="form-label">Default file input example</label>
+                    <input class="form-control" type="file" id="cover-upload" name="cover-upload">
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}">

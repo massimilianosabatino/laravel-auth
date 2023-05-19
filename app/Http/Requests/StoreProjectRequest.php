@@ -25,12 +25,13 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:projects',
-            'cover' => 'required',
+            'cover' => 'nullable',
             'description' => 'required',
             'category' => 'required',
             'link' => 'url|nullable',
             'client' => 'string|nullable',
-            'private' => 'boolean'
+            'private' => 'boolean',
+            'cover-upload' => 'image|nullable'
         ];
     }
 }

@@ -29,12 +29,13 @@ class UpdateProjectRequest extends FormRequest
                 'required',
                 Rule::unique('projects')->ignore($this->project)
             ],
-            'cover' => 'required',
+            'cover' => 'nullable',
             'description' => 'required',
             'category' => 'required',
             'link' => 'url|nullable',
             'client' => 'string|nullable',
             'private' => 'boolean',
+            'cover-upload' => 'image|nullable'
         ];
     }
 }

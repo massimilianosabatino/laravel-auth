@@ -23,8 +23,13 @@
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="cover" name="cover" value="{{ old('cover', $project->cover) }}">
-                    <label for="cover" class="form-label">Image url or path</label>
+                    <label for="cover" class="form-label">Cover image url or path</label>
                 </div>
+                <div class="mb-3">
+                    <label for="cover-upload" class="form-label">Default file input example</label>
+                    <input class="form-control" type="file" id="cover-upload" name="cover-upload">
+                  </div>
+                  
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="description" name="description" value="{{ old('description', $project->description) }}">
                     <label for="description" class="form-label">Description</label>

@@ -25,7 +25,7 @@
                         <tr>
                             <th scope="row">{{ $project->id }}</th>
                             <td>
-                                <img class="img-fluid thumb" src="{{ $project->cover }}" alt="{{ $project->cover }}">
+                                <img class="img-fluid thumb" src="@if (Str::startsWith($project->cover, 'http')) {{ $project->cover }} @else {{ asset('storage/' . $project->cover) }} @endif" alt="{{ $project->title }}">
                             </td>
                             <td>{{ $project->title }}</td>
                             <td>{{ $project->category }}</td>
