@@ -113,6 +113,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if(Str::startsWith($project->cover, 'uploads')){
+            Storage::delete($project->cover);
+        }
         $project->delete();
 
         return to_route('admin.projects.index');
