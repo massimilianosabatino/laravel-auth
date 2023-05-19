@@ -12,7 +12,7 @@
 @endif
 <div class="container-fluid mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-10 p-4 border rounded">
+        <div id="edit" class="col-md-10 p-4 border rounded edit">
             <h2>New project</h2>
             <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -24,6 +24,9 @@
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="cover" name="cover" value="{{ old('cover', $project->cover) }}">
                     <label for="cover" class="form-label">Cover image url or path</label>
+                </div>
+                <div class="mb-3">
+                    <img class="img-fluid" id="file-preview" src="@if (Str::startsWith($project->cover, 'http')) {{ $project->cover }} @else {{ asset('storage/' . $project->cover) }} @endif">
                 </div>
                 <div class="mb-3">
                     <label for="cover-upload" class="form-label">Default file input example</label>

@@ -12,7 +12,7 @@
 @endif
 <div class="container-fluid mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-10 p-4 border rounded">
+        <div id="create" class="col-md-10 p-4 border rounded">
             <h2>New project</h2>
             <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
