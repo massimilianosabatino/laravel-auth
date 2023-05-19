@@ -39,8 +39,10 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        // dd($request);
         $newProject = new Project();
         $newProject->fill($request->validated());
+        $newProject->private = isset($request['private']);
         $newProject->slug = Str::slug($newProject->title);
         $newProject->save();
 
@@ -80,6 +82,7 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $project->update($data);
+        $project->private = isset($request['private']);
         $project->slug = Str::slug($project->title);
         $project->save();
 

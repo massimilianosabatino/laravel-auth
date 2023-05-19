@@ -30,7 +30,7 @@ class StoreProjectRequest extends FormRequest
             'category' => 'required',
             'link' => 'url|nullable',
             'client' => 'string|nullable',
-            'private' => 'boolean',
+            'private' => 'boolean'
         ];
     }
 }

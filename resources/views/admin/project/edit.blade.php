@@ -48,7 +48,7 @@
                     <label for="client" class="form-label">Client</label>
                 </div>
                 <div class="mb-3">
-                    <input class="form-check-input" type="checkbox" id="private" name="private" value="{{ old('private', $project->private) }}">
+                    <input class="form-check-input" type="checkbox" id="private" name="private" value="{{ old('private', $project->private) }}" @checked(old('private', $project->private))>
                     <label for="private" class="form-check-label">Private project</label>
                 </div>
                 <div class="row">
