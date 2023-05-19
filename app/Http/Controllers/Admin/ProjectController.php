@@ -43,7 +43,6 @@ class ProjectController extends Controller
         // dd($request);
         $newProject = new Project();
         $newProject->fill($request->validated());
-        dd($request['cover-upload']);
         if(isset($request['cover-upload'])){
             $newProject->cover = Storage::put('uploads', $request['cover-upload']);
         }
@@ -87,7 +86,13 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         // dd($request['cover-upload']);
-        if($request['cover-upload'] !== '' AND isset($request['cover-upload'])){
+        // if($request['cover-upload'] !== '' AND isset($request['cover-upload'])){
+        //     if(Str::startsWith($project->cover, 'uploads')){
+        //         Storage::delete($project->cover);
+        //     }
+        //     $data['cover'] = Storage::put('uploads', $request['cover-upload']);
+        // }
+        if(isset($request['cover-upload'])){
             if(Str::startsWith($project->cover, 'uploads')){
                 Storage::delete($project->cover);
             }
