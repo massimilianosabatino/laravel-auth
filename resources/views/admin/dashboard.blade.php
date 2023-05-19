@@ -19,5 +19,17 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Projects</div>
+                <div class="card-body">
+                    <div>
+                        <a href="{{ route('admin.projects.index') }}" class="btn btn-light">Gestione progetti</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
