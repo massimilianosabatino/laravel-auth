@@ -13,5 +13,10 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+                        <a href="{{ route('guest.index') }}" class="btn btn-light">Vai ai progetti</a>
+        </div>
+    </div>
 </div>
 @endsection
