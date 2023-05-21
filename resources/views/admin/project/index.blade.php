@@ -12,7 +12,7 @@
             <table id="project-table" class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
+                    <th scope="col">#</th>
                     <th scope="col">Cover</th>
                     <th scope="col">Title</th>
                     <th scope="col">Category</th>
@@ -23,7 +23,7 @@
                 <tbody class="align-middle">
                     @foreach ($projects as $project)
                         <tr>
-                            <th scope="row">{{ $project->id }}</th>
+                            <th scope="row">{{ $loop->iteration }}</th>
                             <td>
                                 <img class="img-fluid thumb" src="@if (Str::startsWith($project->cover, 'http')) {{ $project->cover }} @else {{ asset('storage/' . $project->cover) }} @endif" alt="{{ $project->title }}">
                             </td>
