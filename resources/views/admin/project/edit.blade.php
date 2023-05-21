@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-floating mb-3">
                     <select class="form-select" name="category" id="category">
-                        <option {{ $project->category === '' ? 'selected' : '' }}>Select category</option>
+                        <option value="" {{ $project->category === '' ? 'selected' : '' }}>Select category</option>
                         <option value="web" {{ old('category', $project->category) === 'web' ? 'selected' : '' }}>Web</option>
                         <option value="graphic" {{ old('category', $project->category) === 'graphic' ? 'selected' : '' }}>Graphic</option>
                         <option value="video" {{ old('category', $project->category) === 'video' ? 'selected' : '' }}>Video</option>

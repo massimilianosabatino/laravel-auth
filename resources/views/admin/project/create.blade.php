@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-floating mb-3">
                     <select class="form-select" name="category" id="category">
-                        <option selected>Select category</option>
+                        <option value="">Select category</option>
                         <option value="web" {{ old('category') === 'web' ? 'selected' : '' }}>Web</option>
                         <option value="graphic" {{ old('category') === 'graphic' ? 'selected' : '' }}>Graphic</option>
                         <option value="video" {{ old('category') === 'video' ? 'selected' : '' }}>Video</option>
