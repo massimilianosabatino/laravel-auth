@@ -24,7 +24,13 @@
             <div class="card">
                 <div class="card-header">Projects</div>
                 <div class="card-body">
-                    <div>
+                    <div class="col-6">
+                        Totale progetti: {{ $countProjectTotal }}
+                    </div>
+                    <div class="col-6">
+                        Categoria con più progetti: {{Str::ucfirst($getMaxCategory->category) }} -> {{ $getMaxCategory->number }} progetti
+                    </div>
+                    <div class="mt-2">
                         <a href="{{ route('admin.projects.index') }}" class="btn btn-light">Gestione progetti</a>
                     </div>
                 </div>
